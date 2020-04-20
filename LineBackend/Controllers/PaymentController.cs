@@ -53,8 +53,8 @@ namespace LineBackend.Controllers
 
         private byte[] HashHMAC(string key, string data)
         {
-            var hash = new HMACSHA256(Convert.FromBase64String(Convert.ToBase64String(Encoding.UTF8.GetBytes(key))));
-            return hash.ComputeHash(Convert.FromBase64String(Convert.ToBase64String(Encoding.UTF8.GetBytes(data))));
+            var hash = new HMACSHA256(Encoding.UTF8.GetBytes(key));
+            return hash.ComputeHash(Encoding.UTF8.GetBytes(data));
         }
     }
 
